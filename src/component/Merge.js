@@ -1,4 +1,5 @@
 import React from "react";
+import DragItem from "./DragItem";
 import DropzoneComponent from "./DropzoneComponent";
 
 const Merge = () => {
@@ -6,6 +7,7 @@ const Merge = () => {
         <div>
             <h1>Merge</h1>
             <DropzoneComponent />
+            <DragItem />
         </div>
     );
 };

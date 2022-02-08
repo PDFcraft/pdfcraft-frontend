@@ -1,9 +1,11 @@
 import React from "react";
+import DropzoneComponent from "./DropzoneComponent";
 
 const Merge = () => {
     return (
         <div>
-            <h1>Merge PDF</h1>
+            <h1>Merge</h1>
+            <DropzoneComponent />
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Merge from "./Merge";
-import Home from "./Home"
+import Merge from "./component/Merge";
+import Home from "./component/Home"
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/merge" exact element={<Merge />} />
+
       </Routes>
     </Router>
   );

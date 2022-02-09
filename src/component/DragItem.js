@@ -1,13 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-// fake data generator
-const getItems = (count) =>
-    Array.from({ length: count }, (v, k) => k).map((k) => ({
-        id: `item-${k}`,
-        content: `item ${k}`
-    }));
-
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -41,7 +34,8 @@ const getListStyle = (isDraggingOver) => ({
 
 const DragItem = (props) => {
     const files = props.files;
-    const [items, setItems] = useState(getItems(0));
+    const setSortedFiles = props.setSortedFiles;
+    const [items, setItems] = useState([]);
     useEffect((items) => {
         console.log("updated")
         setItems(files.map((file, index) => ({
@@ -65,6 +59,10 @@ const DragItem = (props) => {
         },
         [items]
     );
+
+    useEffect(() => {
+        setSortedFiles(items)
+    }, [items])
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>

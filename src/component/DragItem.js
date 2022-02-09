@@ -1,7 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+// fake data generator
+const getItems = (count) =>
+    Array.from({ length: count }, (v, k) => k).map((k) => ({
+        id: `item-${k}`,
+        content: `item ${k}`
+    }));
+
 // a little function to help us with reordering the result
+const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+};
 
 const grid = 8;
 
@@ -25,8 +39,33 @@ const getListStyle = (isDraggingOver) => ({
     overflow: "auto"
 });
 
-const DragItem = (files, onDragEnd, items) => {
-    console.log(files)
+const DragItem = (props) => {
+    const files = props.files;
+    const [items, setItems] = useState(getItems(0));
+    useEffect((items) => {
+        console.log("updated")
+        setItems(files.map((file, index) => ({
+            id: `${index}`,
+            content: `${file.name}`
+        })));
+        console.log(items)
+    }, [files])
+
+    const onDragEnd = useCallback(
+        (result) => {
+            if (result.destination) {
+                const newItems = reorder(
+                    items,
+                    result.source.index,
+                    result.destination.index
+                );
+
+                setItems(newItems);
+            }
+        },
+        [items]
+    );
+
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable" direction="horizontal">
@@ -36,7 +75,7 @@ const DragItem = (files, onDragEnd, items) => {
                         style={getListStyle(snapshot.isDraggingOver)}
                         {...provided.droppableProps}
                     >
-                        {items?.map((item, index) => (
+                        {items.map((item, index) => (
                             <Draggable key={item.id} draggableId={item.id} index={index}>
                                 {(provided, snapshot) => (
                                     <div
@@ -60,5 +99,5 @@ const DragItem = (files, onDragEnd, items) => {
         </DragDropContext>
     );
 };
-
 export default DragItem;
+

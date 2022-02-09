@@ -7,15 +7,37 @@ const DropzoneComponent = ({ fileNames, handleDrop }) => {
         <>
             <GlobalStyle />
             <div>
-                <Dropzone onDrop={handleDrop} accept="application/pdf">
-                    {({ getRootProps, getInputProps }) => (
-                        <section>
-                            <div {...getRootProps()}>
+                <Dropzone
+                    onDrop={handleDrop}
+                    accept="application/pdf"
+                    minSize={1024}
+                    maxSize={3072000}
+                >
+                    {({
+                        getRootProps,
+                        getInputProps,
+                        isDragActive,
+                        isDragAccept,
+                        isDragReject
+                    }) => {
+                        const additionalClass = isDragAccept
+                            ? "accept"
+                            : isDragReject
+                                ? "reject"
+                                : "";
+
+                        return (
+                            <div
+                                {...getRootProps({
+                                    className: `dropzone ${additionalClass}`
+                                })}
+                            >
                                 <input {...getInputProps()} />
-                                <p>Drag 'n' drop some files here, or click to select files</p>
+                                <span>{isDragActive ? "📂" : "📁"}</span>
+                                <p>Drag'n'drop pdfs, or click to select pdfs</p>
                             </div>
-                        </section>
-                    )}
+                        );
+                    }}
                 </Dropzone>
 
                 <div>

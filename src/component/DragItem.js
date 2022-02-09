@@ -37,12 +37,10 @@ const DragItem = (props) => {
     const setSortedFiles = props.setSortedFiles;
     const [items, setItems] = useState([]);
     useEffect((items) => {
-        console.log("updated")
         setItems(files.map((file, index) => ({
             id: `${index}`,
             content: `${file.name}`
         })));
-        console.log(items)
     }, [files])
 
     const onDragEnd = useCallback(

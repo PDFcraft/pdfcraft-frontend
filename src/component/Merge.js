@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DragItem from "./DragItem";
 import DropzoneComponent from "./DropzoneComponent";
 import * as UploadFiles from "./UploadFiles";
@@ -14,13 +14,6 @@ const Merge = () => {
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }
-    useEffect(() => {
-        console.log(files)
-        console.log(sortedFiles)
-        if (typeof sortedFiles[0] !== 'undefined') {
-            console.log(Object.values(sortedFiles[0])[1])
-        }
-    }, [sortedFiles])
     return (
         <div>
             <h1>Merge</h1>

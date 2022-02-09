@@ -3,13 +3,22 @@ import Axios from 'axios';
 
 
 export const UploadFiles = (files, sortedFiles) => {
-
-    console.log(files)
-    console.log(sortedFiles)
-
+    let sortedFileLists = []
+    let sortedFileNames = []
+    for (var i in sortedFiles) {
+        let fileName = sortedFileNames.push(Object.values(sortedFiles[i])[1])
+    }
+    for (var j in sortedFileNames) {
+        for (var k in files) {
+            if (files[k].name === sortedFileNames[j]) {
+                let addInOrder = sortedFileLists.push(files[k])
+            }
+        }
+    }
+    console.log(sortedFileLists)
     const formData = new FormData();
-    for (var i in files) {
-        formData.append('files', files[i]);
+    for (var l in files) {
+        formData.append('files', files[l]);
     }
     Axios.post('http://localhost:8080/merge', formData, {
         headers: {

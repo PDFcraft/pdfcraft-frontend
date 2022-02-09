@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropzone from 'react-dropzone';
 import GlobalStyle from "./GloblaStyles";
 
-const DropzoneComponent = () => {
-    const [fileNames, setFileNames] = useState([]);
-    const handleDrop = acceptedFiles => {
-        setFileNames(acceptedFiles.map(file => file.name));
-        console.log(acceptedFiles);
-    }
-
+const DropzoneComponent = ({ fileNames, handleDrop }) => {
     return (
         <>
             <GlobalStyle />

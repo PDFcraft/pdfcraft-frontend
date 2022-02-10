@@ -55,7 +55,7 @@ const DragItem = (props) => {
                                             provided.draggableProps.style
                                         )}
                                     >
-                                        <img src="pdf_mark.svg" />
+                                        <img src="pdf_mark.svg" alt="pdf-file" />
                                         {item.content}
                                     </div>
                                 )}

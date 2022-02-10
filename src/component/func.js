@@ -1,5 +1,17 @@
 import Axios from 'axios';
 
+export const postHandler = (files, sortedFiles, setMergedFile, e) => {
+    UploadFiles(files, sortedFiles, setMergedFile)
+    e.preventDefault();
+    // do someting...
+}
+
+export const getHandler = (url, mergedFileName, e) => {
+    const file_url = "http://localhost:8080/download=" + url.replace(/\.[^/.]+$/, "");
+    DownloadFile(file_url, mergedFileName)
+    e.preventDefault();
+}
+
 export const UploadFiles = (files, sortedFiles, setMergedFile) => {
     const formData = new FormData();
     for (var i in sortedFiles) {
@@ -15,11 +27,29 @@ export const UploadFiles = (files, sortedFiles, setMergedFile) => {
         },
     }).then((resp) => {
         if (resp.status === 200) {
-            console.log(resp.data);
-            setMergedFile(resp.data)
+
+            // const mergedName = Object.keys(resp.data.mergedFileName)
+            // const uuidName = Object.values(resp.data.mergedFileName)
+            setMergedFile(Object.entries(resp.data.mergedFileName)[0])
         }
     });
 };
+
+export const DownloadFile = (file_url, mergedFileName) => {
+    console.log(file_url)
+    Axios({
+        url: file_url, //your url
+        method: 'GET',
+        responseType: 'blob', // important
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', mergedFileName);
+        document.body.appendChild(link);
+        link.click();
+    });
+}
 
 export const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);

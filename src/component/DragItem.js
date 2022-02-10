@@ -31,7 +31,8 @@ const DragItem = (props) => {
 
     useEffect(() => {
         setSortedFiles(items)
-    }, [items])
+    }, // eslint-disable-next-line
+        [items])
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>

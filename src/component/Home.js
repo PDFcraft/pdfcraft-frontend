@@ -10,6 +10,11 @@ const Home = () => {
                     MERGE
                 </button>
             </Link>
+            <Link to="/split">
+                <button>
+                    SPLIT
+                </button>
+            </Link>
         </div>
     );
 };

@@ -2,12 +2,13 @@ import React from "react";
 import Dropzone from 'react-dropzone';
 import GlobalStyle from "./GloblaStyles";
 
-const DropzoneComponent = ({ fileNames, handleDrop }) => {
+const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     return (
         <>
             <GlobalStyle />
             <div>
                 <Dropzone
+                    multiple={allowMultiple ? true : false}
                     onDrop={handleDrop}
                     accept="application/pdf"
                     minSize={1024}
@@ -34,16 +35,11 @@ const DropzoneComponent = ({ fileNames, handleDrop }) => {
                             >
                                 <input {...getInputProps()} />
                                 <span>{isDragActive ? "📂" : "📁"}</span>
-                                <p>Drag'n'drop pdfs, or click to select pdfs</p>
+                                <p>{dragzoneMsg}</p>
                             </div>
                         );
                     }}
                 </Dropzone>
-
-                <div>
-                    <strong>Files:</strong>
-                    {fileNames}
-                </div>
             </div>
         </>
     );

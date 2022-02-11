@@ -14,7 +14,12 @@ const Merge = () => {
     return (
         <div>
             <h1>Merge</h1>
-            <DropzoneComponent dragzoneMsg={dragzoneMsg} allowMultiple={true} handleDrop={handleDrop}></DropzoneComponent>
+            {
+                files.length < 1 &&
+                <DropzoneComponent dragzoneMsg={dragzoneMsg} allowMultiple={true} handleDrop={handleDrop}></DropzoneComponent>
+
+            }
+
             {
                 files.length > 0 &&
                 <DragItem files={files} setSortedFiles={setSortedFiles} />
@@ -33,7 +38,6 @@ const Merge = () => {
                 <button onClick={(e) => { func.getFileHandler(mergedFile[1], mergedFile[0], e) }}>
                     DOWNLOAD
                 </button>
-
             }
         </div>
     );

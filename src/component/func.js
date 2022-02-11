@@ -1,15 +1,38 @@
 import Axios from 'axios';
 
-export const postHandler = (files, sortedFiles, setMergedFile, e) => {
+export const postFileHandler = (file, setProcessedFile, e) => {
+    console.log(file)
+    UploadFile(file, setProcessedFile)
+    e.preventDefault();
+    // do someting...
+}
+
+export const postFilesHandler = (files, sortedFiles, setMergedFile, e) => {
     UploadFiles(files, sortedFiles, setMergedFile)
     e.preventDefault();
     // do someting...
 }
 
-export const getHandler = (url, mergedFileName, e) => {
+export const getFileHandler = (url, mergedFileName, e) => {
     const file_url = "http://localhost:8080/download=" + url.replace(/\.[^/.]+$/, "");
     DownloadFile(file_url, mergedFileName)
     e.preventDefault();
+}
+
+export const UploadFile = (file, setProcessedFile) => {
+    console.log(file)
+    const formData = new FormData();
+    formData.append('file', file[0])
+    Axios.post('http://localhost:8080/filetest', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    }).then((resp) => {
+        if (resp.status === 200) {
+            setProcessedFile(Object.entries(resp.data.FileName)[0])
+        }
+    });
+
 }
 
 export const UploadFiles = (files, sortedFiles, setMergedFile) => {
@@ -17,6 +40,7 @@ export const UploadFiles = (files, sortedFiles, setMergedFile) => {
     for (var i in sortedFiles) {
         for (var j in files) {
             if (files[j].name === Object.values(sortedFiles[i])[1]) {
+                console.log(files[j])
                 formData.append('files', files[j]);
             }
         }

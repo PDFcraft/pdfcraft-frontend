@@ -12,7 +12,7 @@ const Split = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     useEffect(() => {
         setTargetUrl("http://localhost:8080/filetest")
-    }, [])
+    })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }

@@ -14,7 +14,7 @@ const Merge = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     useEffect(() => {
         setTargetUrl("http://localhost:8080/merge")
-    }, [])
+    })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }

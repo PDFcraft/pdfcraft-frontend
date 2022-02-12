@@ -1,11 +1,13 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { filesState, userDefinedOrderState } from "../state";
 import * as func from "../utils"
 
 // a little function to help us with reordering the result
 const DragItem = (props) => {
-    const files = props.files;
-    const setSortedFiles = props.setSortedFiles;
+    const files = useRecoilValue(filesState)
+    const setUserDefinedOrder = useSetRecoilState(userDefinedOrderState)
     const [items, setItems] = useState([]);
     useEffect((items) => {
         setItems(files.map((file, index) => ({
@@ -30,7 +32,7 @@ const DragItem = (props) => {
     );
 
     useEffect(() => {
-        setSortedFiles(items)
+        setUserDefinedOrder(items)
     }, // eslint-disable-next-line
         [items])
 

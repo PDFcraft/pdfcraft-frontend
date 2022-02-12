@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { useRecoilState } from "recoil";
 import * as utils from "../utils";
 
 const Merge = () => {
     const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";
-    const [sortedFiles, setSortedFiles] = useRecoilState([]);
-    const [files, setFiles] = useRecoilState([]);
-    const [mergedFile, setMergedFile] = useRecoilState([]);
+    const [sortedFiles, setSortedFiles] = useState([]);
+    const [files, setFiles] = useState([]);
+    const [mergedFile, setMergedFile] = useState([]);
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }

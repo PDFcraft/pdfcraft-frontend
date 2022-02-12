@@ -31,9 +31,7 @@ function App() {
           </Routes>
         </Router>
       </>
-
     </RecoilRoot>
-
   );
 };
 

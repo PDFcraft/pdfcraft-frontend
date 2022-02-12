@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DropzoneComponent from "./DropzoneComponent";
-import * as func from "./func";
+import DropzoneComponent from "../Components/DropzoneComponent";
+import * as func from "../Components/Func";
 
 const Split = () => {
     const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";

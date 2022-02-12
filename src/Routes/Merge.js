@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, userDefinedOrderState, targetUrlState } from "../state";
+import { filesState, proccesedFileState, userDefinedOrderState, targetUrlState, buttonTextState } from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 
@@ -11,9 +11,11 @@ const Merge = () => {
     const [userDefinedOrder, setUserDefinedOrder] = useRecoilState(userDefinedOrderState);
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
+    const setButtonText = useSetRecoilState(buttonTextState)
     const setTargetUrl = useSetRecoilState(targetUrlState);
     useEffect(() => {
         setTargetUrl("http://localhost:8080/merge")
+        setButtonText("Merge")
     })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);

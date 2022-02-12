@@ -19,3 +19,8 @@ export const targetUrlState = atom({
     key: "targetUrlState",
     default: " ",
 })
+
+export const buttonTextState = atom({
+    key: "buttonTextState",
+    default: " ",
+})

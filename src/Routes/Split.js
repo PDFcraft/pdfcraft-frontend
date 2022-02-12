@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { filesState, proccesedFileState, targetUrlState } from "../state";
+import { buttonTextState, filesState, proccesedFileState, targetUrlState } from "../state";
 import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
 
@@ -10,8 +10,10 @@ const Split = () => {
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
+    const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
         setTargetUrl("http://localhost:8080/filetest")
+        setButtonText("Split")
     })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);

@@ -1,13 +1,14 @@
 import React from "react";
 import Axios from 'axios';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, targetUrlState, userDefinedOrderState } from '../state';
+import { buttonTextState, filesState, proccesedFileState, targetUrlState, userDefinedOrderState } from '../state';
 
 const UploadButton = () => {
     const files = useRecoilValue(filesState)
     const userDefinedOrder = useRecoilValue(userDefinedOrderState)
     const setProcessedFile = useSetRecoilState(proccesedFileState)
     const targetUrl = useRecoilValue(targetUrlState)
+    const buttonText = useRecoilValue(buttonTextState)
     const postFiles = () => {
         const formData = new FormData();
         for (var i in userDefinedOrder) {
@@ -46,7 +47,7 @@ const UploadButton = () => {
     }
     return (
         <button onClick={files.length > 1 ? postFiles : postFile}>
-            Post
+            {buttonText}
         </button>
     );
 };

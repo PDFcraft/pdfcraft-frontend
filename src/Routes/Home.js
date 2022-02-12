@@ -25,6 +25,26 @@ const Home = () => {
                     ESIGN
                 </button>
             </Link>
+            <Link to="/topdf">
+                <button>
+                    TOPDF
+                </button>
+            </Link>
+            <Link to="/tojpg">
+                <button>
+                    TOJPG
+                </button>
+            </Link>
+            <Link to="/rotate">
+                <button>
+                    ROTATE
+                </button>
+            </Link>
+            <Link to="/protect">
+                <button>
+                    PROTECT
+                </button>
+            </Link>
         </div>
     );
 };

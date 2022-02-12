@@ -4,6 +4,7 @@ import Merge from "./Routes/Merge";
 import Home from "./Routes/Home"
 import Split from "./Routes/Split";
 import Unlock from "./Routes/Unlock";
+import Esign from "./Routes/Esign";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/merge" exact element={<Merge />} />
         <Route path="/split" exact element={<Split />} />
         <Route path="/unlock" exact element={<Unlock />} />
+        <Route path="/esign" exact element={<Esign />} />
       </Routes>
     </Router>
   );

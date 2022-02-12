@@ -1,6 +1,6 @@
 import React from "react";
 import Dropzone from 'react-dropzone';
-import GlobalStyle from "./GloblaStyles";
+import GlobalStyle from "../GloblaStyles";
 
 const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     return (

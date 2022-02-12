@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DropzoneComponent from "./DropzoneComponent";
-import * as func from "./func";
+import DropzoneComponent from "../Components/DropzoneComponent";
+import * as utils from "../utils";
 
 const Split = () => {
     const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";
@@ -19,13 +19,13 @@ const Split = () => {
 
             {
                 file.length > 0 &&
-                <button onClick={(e) => { func.postFileHandler(file, setProcessedFile, e) }}>
+                <button onClick={(e) => { utils.postFileHandler(file, setProcessedFile, e) }}>
                     Post
                 </button>
             }
             {
                 processedFile.length > 0 &&
-                <button onClick={(e) => { func.getFileHandler(processedFile[1], processedFile[0], e) }}>
+                <button onClick={(e) => { utils.getFileHandler(processedFile[1], processedFile[0], e) }}>
                     DOWNLOAD
                 </button>
 

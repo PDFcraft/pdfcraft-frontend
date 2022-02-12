@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Merge from "./component/Merge";
-import Home from "./component/Home"
-import Split from "./component/Split";
+import Merge from "./Routes/Merge";
+import Home from "./Routes/Home"
+import Split from "./Routes/Split";
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/merge" exact element={<Merge />} />
         <Route path="/split" exact element={<Split />} />
-
       </Routes>
     </Router>
   );

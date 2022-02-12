@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import * as func from "./func"
+import * as func from "../utils"
 
 // a little function to help us with reordering the result
 const DragItem = (props) => {

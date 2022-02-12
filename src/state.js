@@ -17,5 +17,5 @@ export const proccesedFileState = atom({
 
 export const targetUrlState = atom({
     key: "targetUrlState",
-    default: "",
+    default: " ",
 })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -12,7 +12,9 @@ const Merge = () => {
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
-    setTargetUrl("http://localhost:8080/merge")
+    useEffect(() => {
+        setTargetUrl("http://localhost:8080/merge")
+    }, [])
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }

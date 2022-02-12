@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { filesState, proccesedFileState, targetUrlState } from "../state";
@@ -10,7 +10,9 @@ const Split = () => {
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
-    setTargetUrl('http://localhost:8080/filetest')
+    useEffect(() => {
+        setTargetUrl("http://localhost:8080/filetest")
+    }, [])
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }

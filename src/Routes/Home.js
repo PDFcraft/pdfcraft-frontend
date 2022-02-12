@@ -15,6 +15,11 @@ const Home = () => {
                     SPLIT
                 </button>
             </Link>
+            <Link to="/unlock">
+                <button>
+                    UNLOCK
+                </button>
+            </Link>
         </div>
     );
 };

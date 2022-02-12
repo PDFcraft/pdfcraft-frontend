@@ -5,7 +5,6 @@ import GlobalStyle from "../GloblaStyles";
 const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     return (
         <>
-            <GlobalStyle />
             <div>
                 <Dropzone
                     multiple={allowMultiple ? true : false}

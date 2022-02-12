@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import * as utils from "../utils";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { filesState, proccesedFileState, userDefinedOrderState, targetUrlState, buttonTextState } from "../state";
+import DownloadButton from "../Components/DownloadButton";
+import UploadButton from "../Components/UploadButton";
 
 const Merge = () => {
     const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";
-    const [sortedFiles, setSortedFiles] = useState([]);
-    const [files, setFiles] = useState([]);
-    const [mergedFile, setMergedFile] = useState([]);
+    const [userDefinedOrder, setUserDefinedOrder] = useRecoilState(userDefinedOrderState);
+    const [files, setFiles] = useRecoilState(filesState);
+    const processedFile = useRecoilValue(proccesedFileState);
+    const setButtonText = useSetRecoilState(buttonTextState)
+    const setTargetUrl = useSetRecoilState(targetUrlState);
+    useEffect(() => {
+        setTargetUrl("http://localhost:8080/merge")
+        setButtonText("Merge")
+    })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
     }
@@ -22,22 +31,17 @@ const Merge = () => {
 
             {
                 files.length > 0 &&
-                <DragItem files={files} setSortedFiles={setSortedFiles} />
+                <DragItem />
 
             }
             {
                 files.length > 0 &&
-                <button onClick={(e) => { utils.postFilesHandler(files, sortedFiles, setMergedFile, e) }}>
-                    Post
-                </button>
+                <UploadButton />
             }
 
-
             {
-                mergedFile.length > 0 &&
-                <button onClick={(e) => { utils.getFileHandler(mergedFile[1], mergedFile[0], e) }}>
-                    DOWNLOAD
-                </button>
+                processedFile.length > 0 &&
+                <DownloadButton />
             }
         </div>
     );

@@ -6,7 +6,7 @@ import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
 
 const Split = () => {
-    const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";
+    const dragzoneMsg = "Drag'n'drop pdf, or click to select pdf";
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);

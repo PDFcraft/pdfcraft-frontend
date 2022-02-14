@@ -12,7 +12,7 @@ const Protect = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
-        setTargetUrl(process.env.REACT_APP_FILETEST_API_LINK)
+        setTargetUrl(process.env.REACT_APP_PROTECT_API_LINK)
         setButtonText("Protect")
     })
     const handleDrop = acceptedFiles => {

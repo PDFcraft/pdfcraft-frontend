@@ -12,7 +12,7 @@ const Topdf = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
-        setTargetUrl(process.env.REACT_APP_FILETEST_API_LINK)
+        setTargetUrl(process.env.REACT_APP_TOPDF_API_LINK)
         setButtonText("Topdf")
     })
     const handleDrop = acceptedFiles => {

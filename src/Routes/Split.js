@@ -12,7 +12,7 @@ const Split = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
-        setTargetUrl(process.env.REACT_APP_FILETEST_API_LINK)
+        setTargetUrl(process.env.REACT_APP_SPLIT_API_LINK)
         setButtonText("Split")
     })
     const handleDrop = acceptedFiles => {

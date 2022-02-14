@@ -12,7 +12,7 @@ const Esign = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
-        setTargetUrl(process.env.REACT_APP_FILETEST_API_LINK)
+        setTargetUrl(process.env.REACT_APP_ESIGN_API_LINK)
         setButtonText("Esign")
     })
     const handleDrop = acceptedFiles => {

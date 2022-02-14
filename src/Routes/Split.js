@@ -12,7 +12,7 @@ const Split = () => {
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState)
     useEffect(() => {
-        setTargetUrl("http://localhost:8080/api/filetest")
+        setTargetUrl(process.env.REACT_APP_FILETEST_API_LINK)
         setButtonText("Split")
     })
     const handleDrop = acceptedFiles => {

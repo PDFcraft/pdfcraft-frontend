@@ -1,6 +1,8 @@
 import React from "react";
 import Dropzone from 'react-dropzone';
 import GlobalStyle from "../GloblaStyles";
+import folderOpen from "../folder_open.svg";
+import folder from "../folder.svg";
 
 const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     return (
@@ -33,7 +35,7 @@ const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
                                 })}
                             >
                                 <input {...getInputProps()} />
-                                <span>{isDragActive ? "📂" : "📁"}</span>
+                                {isDragActive ? <img src={folderOpen} width="20" alt="pdf-file" /> : <img src={folder} width="20" alt="pdf-file" />}
                                 <p>{dragzoneMsg}</p>
                             </div>
                         );

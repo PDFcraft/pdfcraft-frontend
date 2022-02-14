@@ -1,35 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import * as utils from "../utils";
+import { buttonTextState, filesState, proccesedFileState, targetUrlState } from "../state";
+import UploadButton from "../Components/UploadButton"
+import DownloadButton from "../Components/DownloadButton"
 
 const Rotate = () => {
     const dragzoneMsg = "Drag'n'drop pdf, or click to select pdf";
-    const [file, setFile] = useState([]);
-    const [processedFile, setProcessedFile] = useState([]);
+    const [files, setFiles] = useRecoilState(filesState);
+    const processedFile = useRecoilValue(proccesedFileState);
+    const setTargetUrl = useSetRecoilState(targetUrlState);
+    const setButtonText = useSetRecoilState(buttonTextState)
+    useEffect(() => {
+        setTargetUrl("http://localhost:8080/api/filetest")
+        setButtonText("Rotate")
+    })
     const handleDrop = acceptedFiles => {
-        setFile(acceptedFiles);
+        setFiles(acceptedFiles);
     }
     return (
         <div>
             <h1>Rotate</h1>
             {
-                file.length < 1 &&
+                files.length < 1 &&
                 <DropzoneComponent dragzoneMsg={dragzoneMsg} allowMultiple={false} handleDrop={handleDrop}></DropzoneComponent>
             }
-
             {
-                file.length > 0 &&
-                <button onClick={(e) => { utils.postFileHandler(file, setProcessedFile, e) }}>
-                    Post
-                </button>
+                files.length > 0 &&
+                <UploadButton />
             }
+
             {
                 processedFile.length > 0 &&
-                <button onClick={(e) => { utils.getFileHandler(processedFile[1], processedFile[0], e) }}>
-                    DOWNLOAD
-                </button>
-
+                <DownloadButton />
             }
+
         </div>
     );
 

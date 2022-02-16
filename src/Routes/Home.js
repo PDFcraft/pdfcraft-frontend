@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { buttonTextState, proccesedFileState, targetUrlState } from "../state";
+import { buttonTextState, proccesedFileState, targetUrlState,acceptedFormatState } from "../state";
 
 const Home = () => {
     const [processedFile, setProcessededFile] = useRecoilState(proccesedFileState);
     const [targetUrl, setTargetUrl] = useRecoilState(targetUrlState);
     const [buttonText, setButtonText] = useRecoilState(buttonTextState)
+    const [acceptedFormat,setAcceptedFormat] = useRecoilState(acceptedFormatState)
     return (
         <div>
             <h1>HOME</h1>

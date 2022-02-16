@@ -24,3 +24,8 @@ export const buttonTextState = atom({
     key: "buttonTextState",
     default: " ",
 })
+
+export const acceptedFormatState = atom({
+    key: "acceptedFormatState",
+    default: "application/pdf",
+})

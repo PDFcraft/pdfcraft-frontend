@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { buttonTextState, filesState, proccesedFileState, targetUrlState } from "../state";
+import { acceptedFormatState, buttonTextState, filesState, proccesedFileState, targetUrlState } from "../state";
 import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
 
@@ -10,8 +10,10 @@ const Topdf = () => {
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
-    const setButtonText = useSetRecoilState(buttonTextState)
+    const setButtonText = useSetRecoilState(buttonTextState);
+    const setAcceptedFormat = useSetRecoilState(acceptedFormatState);
     useEffect(() => {
+        setAcceptedFormat("image/*")
         setTargetUrl(process.env.REACT_APP_TOPDF_API_LINK)
         setButtonText("Topdf")
     })

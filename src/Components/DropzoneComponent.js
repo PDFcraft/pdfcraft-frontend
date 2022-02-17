@@ -4,16 +4,18 @@ import folderOpen from "../folder_open.svg";
 import folder from "../folder.svg";
 import { useRecoilValue } from "recoil";
 import { acceptedFormatState } from "../state";
+import { pdfMessageState } from "../state";
 
 const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     const acceptedFormat = useRecoilValue(acceptedFormatState);
-    console.log(acceptedFormat)
+    const setDragzoneMsg = useRecoilValue(pdfMessageState);
     return (
         <div>
             <Dropzone
+                dragzoneMsg={setDragzoneMsg}
                 multiple={allowMultiple ? true : false}
                 onDrop={handleDrop}
-                accept={acceptedFormat} // recoil 적용해주세요 image/* 인경우 있음
+                accept={acceptedFormat}
                 minSize={1024}
                 maxSize={3072000}
             >
@@ -38,7 +40,7 @@ const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
                         >
                             <input {...getInputProps()} />
                             {isDragActive ? <img src={folderOpen} width="20" alt="pdf-file" /> : <img src={folder} width="20" alt="pdf-file" />}
-                            <p>{dragzoneMsg}</p>
+                            <p>{setDragzoneMsg}</p>
                         </div>
                     );
                 }}

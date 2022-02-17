@@ -29,3 +29,8 @@ export const acceptedFormatState = atom({
     key: "acceptedFormatState",
     default: "application/pdf",
 })
+
+export const pdfMessageState = atom({
+    key: "pdfMessageState",
+    default: " ",
+})

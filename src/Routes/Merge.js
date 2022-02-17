@@ -2,20 +2,20 @@ import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, userDefinedOrderState, targetUrlState, buttonTextState } from "../state";
+import { filesState, proccesedFileState, targetUrlState, buttonTextState, pdfMessageState } from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 
 const Merge = () => {
-    const dragzoneMsg = "Drag'n'drop pdfs, or click to select pdfs";
-    const [userDefinedOrder, setUserDefinedOrder] = useRecoilState(userDefinedOrderState);
     const [files, setFiles] = useRecoilState(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setButtonText = useSetRecoilState(buttonTextState)
     const setTargetUrl = useSetRecoilState(targetUrlState);
+    const setDragzoneMsg = useSetRecoilState(pdfMessageState);
     useEffect(() => {
         setTargetUrl(process.env.REACT_APP_MERGE_API_LINK)
         setButtonText("Merge")
+        setDragzoneMsg("Drag'n'drop pdfs, or click to select pdfs")
     })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
@@ -25,7 +25,7 @@ const Merge = () => {
             <h1>Merge</h1>
             {
                 files.length < 1 &&
-                <DropzoneComponent dragzoneMsg={dragzoneMsg} allowMultiple={true} handleDrop={handleDrop}></DropzoneComponent>
+                <DropzoneComponent allowMultiple={true} handleDrop={handleDrop}></DropzoneComponent>
 
             }
 

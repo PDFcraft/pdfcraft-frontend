@@ -34,3 +34,8 @@ export const pdfMessageState = atom({
     key: "pdfMessageState",
     default: " ",
 })
+
+export const allowMultipleState = atom({
+    key: "allowMultipleState",
+    default: " ",
+})

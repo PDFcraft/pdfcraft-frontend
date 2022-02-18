@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, targetUrlState, buttonTextState, acceptedFormatState, pdfMessageState } from "../state";
+import { filesState, proccesedFileState, targetUrlState, buttonTextState, acceptedFormatState, pdfMessageState, allowMultipleState } from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 
@@ -14,11 +14,13 @@ const Topdf = () => {
     const setButtonText = useSetRecoilState(buttonTextState);
     const setAcceptedFormat = useSetRecoilState(acceptedFormatState);
     const setDragzoneMsg = useSetRecoilState(pdfMessageState);
+    const setAllowMultiple = useSetRecoilState(allowMultipleState);
     useEffect(() => {
         setAcceptedFormat("image/*")
         setTargetUrl(process.env.REACT_APP_TOPDF_API_LINK)
         setButtonText("Topdf")
         setDragzoneMsg("Drag'n'drop imgs, or click to select imgs")
+        setAllowMultiple(true)
     })
     const handleDrop = acceptedFiles => {
         setFiles(acceptedFiles);
@@ -28,7 +30,7 @@ const Topdf = () => {
             <h1>Topdf</h1>
             {
                 files.length < 1 &&
-                <DropzoneComponent allowMultiple={true} handleDrop={handleDrop}></DropzoneComponent>
+                <DropzoneComponent handleDrop={handleDrop}></DropzoneComponent>
             }
             {
                 files.length > 0 &&

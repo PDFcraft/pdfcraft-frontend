@@ -3,17 +3,18 @@ import Dropzone from 'react-dropzone';
 import folderOpen from "../folder_open.svg";
 import folder from "../folder.svg";
 import { useRecoilValue } from "recoil";
-import { acceptedFormatState } from "../state";
-import { pdfMessageState } from "../state";
+import { acceptedFormatState, pdfMessageState, allowMultipleState } from "../state";
 
 const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
     const acceptedFormat = useRecoilValue(acceptedFormatState);
     const setDragzoneMsg = useRecoilValue(pdfMessageState);
+    const setAllowMultiple = useRecoilValue(allowMultipleState);
+    console.log(setAllowMultiple);
     return (
         <div>
             <Dropzone
                 dragzoneMsg={setDragzoneMsg}
-                multiple={allowMultiple ? true : false}
+                allowMultiple={setAllowMultiple}
                 onDrop={handleDrop}
                 accept={acceptedFormat}
                 minSize={1024}
@@ -24,7 +25,7 @@ const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
                     getInputProps,
                     isDragActive,
                     isDragAccept,
-                    isDragReject
+                    isDragReject,
                 }) => {
                     const additionalClass = isDragAccept
                         ? "accept"

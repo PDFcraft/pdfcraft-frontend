@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, targetUrlState, buttonTextState, pdfMessageState, allowMultipleState } from "../state";
+import { filesState, proccesedFileState, targetUrlState, buttonTextState, pdfMessageState, allowMultipleState} from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 

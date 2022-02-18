@@ -37,5 +37,5 @@ export const pdfMessageState = atom({
 
 export const allowMultipleState = atom({
     key: "allowMultipleState",
-    default: " ",
+    default: false,
 })

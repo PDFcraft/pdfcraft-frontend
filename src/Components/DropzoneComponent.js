@@ -5,16 +5,16 @@ import folder from "../folder.svg";
 import { useRecoilValue } from "recoil";
 import { acceptedFormatState, pdfMessageState, allowMultipleState } from "../state";
 
-const DropzoneComponent = ({ dragzoneMsg, allowMultiple, handleDrop }) => {
+const DropzoneComponent = ({ handleDrop }) => {
     const acceptedFormat = useRecoilValue(acceptedFormatState);
     const setDragzoneMsg = useRecoilValue(pdfMessageState);
-    const setAllowMultiple = useRecoilValue(allowMultipleState);
+    let setAllowMultiple = useRecoilValue(allowMultipleState);
     console.log(setAllowMultiple);
     return (
         <div>
             <Dropzone
+                multiple={setAllowMultiple}
                 dragzoneMsg={setDragzoneMsg}
-                allowMultiple={setAllowMultiple}
                 onDrop={handleDrop}
                 accept={acceptedFormat}
                 minSize={1024}

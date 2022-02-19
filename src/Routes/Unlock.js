@@ -1,32 +1,25 @@
 import React, { useEffect } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { buttonTextState, filesState, proccesedFileState, targetUrlState, pdfMessageState, allowMultipleState } from "../state";
+import { buttonTextState, filesState, proccesedFileState, targetUrlState} from "../state";
 import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
 
 const Unlock = () => {
-    const [files, setFiles] = useRecoilState(filesState);
+    const files = useRecoilValue(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState);
-    const setDragzoneMsg = useSetRecoilState(pdfMessageState);
-    const setAllowMultiple = useSetRecoilState(allowMultipleState);
     useEffect(() => {
         setTargetUrl(process.env.REACT_APP_UNLOCK_API_LINK)
         setButtonText("Unlock")
-        setDragzoneMsg("Drag'n'drop pdf, or click to select pdf")
-        setAllowMultiple(false)
     })
-    const handleDrop = acceptedFiles => {
-        setFiles(acceptedFiles);
-    }
     return (
         <div>
             <h1>Unlock</h1>
             {
                 files.length < 1 &&
-                <DropzoneComponent allowMultiple={false} handleDrop={handleDrop}></DropzoneComponent>
+                <DropzoneComponent/>
             }
             {
                 files.length > 0 &&

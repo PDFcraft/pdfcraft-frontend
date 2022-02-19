@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { filesState, proccesedFileState, targetUrlState, buttonTextState, acceptedFormatState, pdfMessageState, allowMultipleState } from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 
 
 const Topdf = () => {
-    const [files, setFiles] = useRecoilState(filesState);
+    const files = useRecoilValue(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState);
@@ -22,15 +22,12 @@ const Topdf = () => {
         setDragzoneMsg("Drag'n'drop imgs, or click to select imgs")
         setAllowMultiple(true)
     })
-    const handleDrop = acceptedFiles => {
-        setFiles(acceptedFiles);
-    }
     return (
         <div>
             <h1>Topdf</h1>
             {
                 files.length < 1 &&
-                <DropzoneComponent handleDrop={handleDrop}></DropzoneComponent>
+                <DropzoneComponent/>
             }
             {
                 files.length > 0 &&

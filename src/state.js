@@ -32,7 +32,7 @@ export const acceptedFormatState = atom({
 
 export const pdfMessageState = atom({
     key: "pdfMessageState",
-    default: " ",
+    default: "Drag'n'drop pdf, or click to select pdf",
 })
 
 export const allowMultipleState = atom({

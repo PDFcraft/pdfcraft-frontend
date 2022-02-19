@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useResetRecoilState} from "recoil";
+import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState } from "../state";
 
 const Home = () => {
+    const resetFiles = useResetRecoilState(filesState);
+    const resetAllowMultiple = useResetRecoilState(allowMultipleState)
+    const resetPdfMessage = useResetRecoilState(pdfMessageState)
+    const resetAcceptedFormat = useResetRecoilState(acceptedFormatState)
+    useEffect(() => {
+        resetFiles()
+        resetAllowMultiple()
+        resetPdfMessage()
+        resetAcceptedFormat()
+
+    })
     return (
         <div>
             <h1>HOME</h1>

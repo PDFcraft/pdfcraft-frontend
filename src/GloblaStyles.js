@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
   border: 3px dashed #eeeeee;
   background-color: #fafafa;
   color: #bdbdbd;
-
   margin-bottom: 20px;
 }
 
@@ -27,6 +26,25 @@ const GlobalStyle = createGlobalStyle`
 .reject {
   border-color: #d83b01 !important;
 }
+
+.drag-box {
+  width:150px;
+  display:flex;
+  flex-direction: column;
+  align-item: center;
+  justify-content: space-between;
+}
+
+.drag-box-text{
+  width:120px;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:hidden;
+  word-break:break-all;
+  font-size:14px;
+}
+
 
 `;
 

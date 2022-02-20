@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   width:150px;
   display:flex;
   flex-direction: column;
-  align-item: center;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -45,7 +45,40 @@ const GlobalStyle = createGlobalStyle`
   font-size:14px;
 }
 
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.grid{
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width:90%;
+}
+
+.box{
+  background-color:#cccccc;
+  height: 120px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: auto;
+}
+
+.box-icon{
+  background-image: url("folder.svg");
+}
+
+.box-btn{
+  width: 100px;
+  height: 30px;
+  border-radius: 25px 25px;
+  cursor: pointer;
+}
 `;
 
 export default GlobalStyle;

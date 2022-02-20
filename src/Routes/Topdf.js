@@ -16,7 +16,7 @@ const Topdf = () => {
     const setDragzoneMsg = useSetRecoilState(pdfMessageState);
     const setAllowMultiple = useSetRecoilState(allowMultipleState);
     useEffect(() => {
-        setAcceptedFormat("image/*")
+        setAcceptedFormat("image/png, image/jpeg")
         setTargetUrl(process.env.REACT_APP_TOPDF_API_LINK)
         setButtonText("Topdf")
         setDragzoneMsg("Drag'n'drop imgs, or click to select imgs")

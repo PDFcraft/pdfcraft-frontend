@@ -48,7 +48,7 @@ const DragItem = (props) => {
                         {items.map((item, index) => (
                             <Draggable key={item.id} draggableId={item.id} index={index}>
                                 {(provided, snapshot) => (
-                                    <div
+                                    <div class="drag-box"
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
@@ -58,7 +58,7 @@ const DragItem = (props) => {
                                         )}
                                     >
                                         <img src="pdf_mark.svg" alt="pdf-file" />
-                                        {item.content}
+                                        <span class="drag-box-text">{item.content}</span>
                                     </div>
                                 )}
                             </Draggable>

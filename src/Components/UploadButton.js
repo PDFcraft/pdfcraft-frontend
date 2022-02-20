@@ -16,7 +16,7 @@ const UploadButton = () => {
         console.log(files)
         const formData = new FormData();
         // 추가하는 코드는 이 아래부터
-        if(password!="default"){
+        if(buttonText==="Protect"){
             formData.append("options",password)
         }
         if (userDefinedOrder.length>1){
@@ -46,15 +46,15 @@ const UploadButton = () => {
     return (
         <div>
             {
-                password!="default" &&
+                buttonText==="Protect" &&
                 <div>
-                    <button onClick={postFiles} disabled={(password!=retypePassword)||(password==="")}>
+                    <button onClick={postFiles} disabled={(password!==retypePassword)||(password==="")}>
                         {buttonText}
                     </button>
                 </div>
             }
             {
-                password==="default"&&
+                buttonText!=="Protect" &&
                 <div>
                     <button onClick={postFiles}>
                         {buttonText}

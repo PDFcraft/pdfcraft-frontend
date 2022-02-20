@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState} from "recoil";
-import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState } from "../state";
+import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState,passwordState } from "../state";
 import folderOpen from "../folder_open.svg";
 import folder from "../folder.svg";
 
@@ -10,11 +10,13 @@ const Home = () => {
     const resetAllowMultiple = useResetRecoilState(allowMultipleState)
     const resetPdfMessage = useResetRecoilState(pdfMessageState)
     const resetAcceptedFormat = useResetRecoilState(acceptedFormatState)
+    const resetPassword = useResetRecoilState(passwordState)
     useEffect(() => {
         resetFiles()
         resetAllowMultiple()
         resetPdfMessage()
         resetAcceptedFormat()
+        resetPassword()
 
     })
     return (

@@ -1,12 +1,15 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { filesState, userDefinedOrderState } from "../state";
+import { filesState, userDefinedOrderState, acceptedFormatState} from "../state";
 import * as func from "../utils"
+import imgMark from "../img_mark.svg";
+import pdfMark from "../pdf_mark.svg";
 
 // a little function to help us with reordering the result
 const DragItem = (props) => {
     const files = useRecoilValue(filesState)
+    const acceptedFormat = useRecoilValue(acceptedFormatState);
     const setUserDefinedOrder = useSetRecoilState(userDefinedOrderState)
     const [items, setItems] = useState([]);
     useEffect((items) => {
@@ -48,7 +51,7 @@ const DragItem = (props) => {
                         {items.map((item, index) => (
                             <Draggable key={item.id} draggableId={item.id} index={index}>
                                 {(provided, snapshot) => (
-                                    <div class="drag-box"
+                                    <div className="drag-box"
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
@@ -57,8 +60,9 @@ const DragItem = (props) => {
                                             provided.draggableProps.style
                                         )}
                                     >
-                                        <img src="pdf_mark.svg" alt="pdf-file" />
-                                        <span class="drag-box-text">{item.content}</span>
+                                        {acceptedFormat === "application/pdf" 
+                                        ? <img src={pdfMark} alt="pdf-file" /> : <img src={imgMark} alt="img-file" />}
+                                        <span className="drag-box-text">{item.content}</span>
                                     </div>
                                 )}
                             </Draggable>

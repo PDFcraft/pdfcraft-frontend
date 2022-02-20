@@ -33,9 +33,9 @@ const Home = () => {
                     UNLOCK
                 </button>
             </Link>
-            <Link to="/esign">
+            <Link to="/watermark">
                 <button>
-                    ESIGN
+                    WATERMARK
                 </button>
             </Link>
             <Link to="/topdf">

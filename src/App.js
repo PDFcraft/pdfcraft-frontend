@@ -4,7 +4,7 @@ import Merge from "./Routes/Merge";
 import Home from "./Routes/Home"
 import Split from "./Routes/Split";
 import Unlock from "./Routes/Unlock";
-import Esign from "./Routes/Esign";
+import Watermark from "./Routes/Watermark";
 import Topdf from "./Routes/Topdf";
 import Tojpg from "./Routes/Tojpg";
 import Protect from "./Routes/Protect";
@@ -23,7 +23,7 @@ function App() {
             <Route path="/merge" exact element={<Merge />} />
             <Route path="/split" exact element={<Split />} />
             <Route path="/unlock" exact element={<Unlock />} />
-            <Route path="/esign" exact element={<Esign />} />
+            <Route path="/watermark" exact element={<Watermark />} />
             <Route path="/topdf" exact element={<Topdf />} />
             <Route path="/tojpg" exact element={<Tojpg />} />
             <Route path="/protect" exact element={<Protect />} />

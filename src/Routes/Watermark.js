@@ -5,21 +5,21 @@ import { buttonTextState, filesState, proccesedFileState, targetUrlState} from "
 import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
 
-const Esign = () => {
+const Watermark = () => {
     const files = useRecoilValue(filesState);
     const processedFile = useRecoilValue(proccesedFileState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState);
     useEffect(() => {
-        setTargetUrl(process.env.REACT_APP_ESIGN_API_LINK)
-        setButtonText("Esign")
+        setTargetUrl(process.env.REACT_APP_WATERMARK_API_LINK)
+        setButtonText("Watermark")
         return()=>{
             window.location.reload(false);
         }
     })
     return (
         <div>
-            <h1>Esign</h1>
+            <h1>Watermark</h1>
             {
                 files.length < 1 &&
                 <DropzoneComponent/>
@@ -39,4 +39,4 @@ const Esign = () => {
 
 };
 
-export default Esign;
+export default Watermark;

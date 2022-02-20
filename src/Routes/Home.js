@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState} from "recoil";
 import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState } from "../state";
+import folderOpen from "../folder_open.svg";
+import folder from "../folder.svg";
 
 const Home = () => {
     const resetFiles = useResetRecoilState(filesState);
@@ -16,48 +18,74 @@ const Home = () => {
 
     })
     return (
-        <div>
+        <div className="wrap">
             <h1>HOME</h1>
+            <section className="grid">
             <Link to="/merge">
-                <button>
-                    MERGE
-                </button>
+                <div className="box merge-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        MERGE
+                    </button>
+                </div>
             </Link>
             <Link to="/split">
-                <button>
-                    SPLIT
-                </button>
+                <div className="box split-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        SPLIT
+                    </button>
+                </div>
             </Link>
             <Link to="/unlock">
-                <button>
-                    UNLOCK
-                </button>
+                <div className="box unlock-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        UNLOCK
+                    </button>
+                </div>
             </Link>
             <Link to="/watermark">
-                <button>
-                    WATERMARK
-                </button>
+                <div className="box watermark-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        WATERMARK
+                    </button>
+                </div>
             </Link>
             <Link to="/topdf">
-                <button>
-                    TOPDF
-                </button>
+                <div className="box topdf-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        TOPDF
+                    </button>
+                </div>
             </Link>
             <Link to="/tojpg">
-                <button>
-                    TOJPG
-                </button>
+                <div className="box tojpg-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        TOJPG
+                    </button>
+                </div>
             </Link>
             <Link to="/rotate">
-                <button>
-                    ROTATE
-                </button>
+                <div className="box rotate-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        ROTATE
+                    </button>
+                </div>
             </Link>
             <Link to="/protect">
-                <button>
-                    PROTECT
-                </button>
+                <div className="box protect-box">
+                    <img src={folder} width="50" alt="pdf-file" />
+                    <button className="box-btn">
+                        PROTECT
+                    </button>
+                </div>
             </Link>
+            </section>
         </div>
     );
 };

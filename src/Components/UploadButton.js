@@ -53,8 +53,16 @@ const UploadButton = () => {
                     </button>
                 </div>
             }
+             {
+                buttonText==="Unlock" &&
+                <div>
+                    <button onClick={postFiles} disabled={password===""}>
+                        {buttonText}
+                    </button>
+                </div>
+            }
             {
-                buttonText!=="Protect" &&
+                ((buttonText!=="Protect")&&(buttonText!=="Unlock"))&&
                 <div>
                     <button onClick={postFiles}>
                         {buttonText}

@@ -39,3 +39,13 @@ export const allowMultipleState = atom({
     key: "allowMultipleState",
     default: false,
 })
+
+export const passwordState = atom({
+    key: "passwordState",
+    default: "",
+})
+
+export const retypePasswordState = atom({
+    key: "retypePasswordState",
+    default: "",
+})

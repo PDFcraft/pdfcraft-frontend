@@ -34,11 +34,7 @@ const Topdf = () => {
                 <DragItem />
 
             }
-            {
-                files.length > 0 &&
-                <UploadButton />
-            }
-
+            <UploadButton />
             {
                 processedFile.length > 0 &&
                 <DownloadButton />

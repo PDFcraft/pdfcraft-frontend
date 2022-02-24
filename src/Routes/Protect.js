@@ -39,16 +39,8 @@ const Protect = () => {
                     <input type="password" name="re-type-password" onChange={onRetypePasswordChange} />
                 </div>
             }
-            {
-                files.length > 0 &&
-                <UploadButton />
-               
-            }
-
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
+            <UploadButton />
+            <DownloadButton />
 
         </div>
     );

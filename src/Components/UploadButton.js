@@ -48,7 +48,7 @@ const UploadButton = () => {
             {
                 buttonText==="Protect" &&
                 <div>
-                    <button onClick={postFiles} disabled={(password!==retypePassword)||(password==="")}>
+                    <button onClick={postFiles} disabled={(password!==retypePassword)||(password==="")||!files.length>0}>
                         {buttonText}
                     </button>
                 </div>
@@ -56,7 +56,7 @@ const UploadButton = () => {
              {
                 buttonText==="Unlock" &&
                 <div>
-                    <button onClick={postFiles} disabled={password===""}>
+                    <button onClick={postFiles} disabled={password===""||!files.length>0}>
                         {buttonText}
                     </button>
                 </div>
@@ -64,7 +64,7 @@ const UploadButton = () => {
             {
                 ((buttonText!=="Protect")&&(buttonText!=="Unlock"))&&
                 <div>
-                    <button onClick={postFiles}>
+                    <button onClick={postFiles} disabled={!files.length>0}>
                         {buttonText}
                     </button>
                 </div>

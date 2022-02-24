@@ -21,15 +21,9 @@ const Tojpg = () => {
                 files.length < 1 &&
                 <DropzoneComponent/>
             }
-            {
-                files.length > 0 &&
-                <UploadButton />
-            }
+            <UploadButton />
 
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
+            <DownloadButton />
 
         </div>
     );

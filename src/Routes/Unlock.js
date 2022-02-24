@@ -31,16 +31,8 @@ const Unlock = () => {
                     <input type="password" name="password" onChange={onPasswordChange} />
                 </div>
             }
-            {
-                files.length > 0 &&
-                <UploadButton />
-            }
-
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
-
+            <UploadButton />
+            <DownloadButton />
         </div>
     );
 

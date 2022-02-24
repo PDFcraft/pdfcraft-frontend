@@ -34,7 +34,7 @@ const Merge = () => {
 
             }
             <UploadButton />
-            {/* <DownloadButton /> */}
+            <DownloadButton />
         </div>
     );
 

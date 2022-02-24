@@ -35,10 +35,7 @@ const Topdf = () => {
 
             }
             <UploadButton />
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
+            <DownloadButton />
 
         </div>
     );

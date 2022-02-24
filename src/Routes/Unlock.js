@@ -32,12 +32,7 @@ const Unlock = () => {
                 </div>
             }
             <UploadButton />
-
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
-
+            <DownloadButton />
         </div>
     );
 

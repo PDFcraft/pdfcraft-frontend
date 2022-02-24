@@ -25,10 +25,7 @@ const Watermark = () => {
                 <DropzoneComponent/>
             }
             <UploadButton />
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
+            <DownloadButton />
 
         </div>
     );

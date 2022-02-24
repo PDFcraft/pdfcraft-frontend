@@ -22,11 +22,7 @@ const Rotate = () => {
                 <DropzoneComponent/>
             }
             <UploadButton />
-
-            {
-                processedFile.length > 0 &&
-                <DownloadButton />
-            }
+            <DownloadButton />
 
         </div>
     );

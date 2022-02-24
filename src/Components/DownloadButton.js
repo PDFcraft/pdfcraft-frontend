@@ -5,7 +5,10 @@ import { proccesedFileState } from "../state";
 
 const DownloadButton = () => {
     const processedFile = useRecoilValue(proccesedFileState);
-    const file_url = "http://localhost:8080/api/download=" + processedFile[1].replace(/\.[^/.]+$/, "");
+    let file_url="";
+    if(processedFile.length>0){
+        file_url = "http://localhost:8080/api/download=" + processedFile[1].replace(/\.[^/.]+$/, "");
+    }
     const processedFileName = processedFile[0]
     const downloadFile = () => {
         Axios({
@@ -22,7 +25,7 @@ const DownloadButton = () => {
         });
     }
     return (
-        <button onClick={downloadFile}>
+        <button onClick={downloadFile} disabled={!processedFile.length>0}>
             DOWNLOAD
         </button>
     )

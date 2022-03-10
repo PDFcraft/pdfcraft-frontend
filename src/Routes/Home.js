@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState} from "recoil";
-import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState,passwordState, proccesedFileState } from "../state";
+import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState,passwordState, processedFileState, flagProcessedState } from "../state";
 import folder from "../folder.svg";
 
 const Home = () => {
@@ -10,7 +10,8 @@ const Home = () => {
     const resetPdfMessage = useResetRecoilState(pdfMessageState)
     const resetAcceptedFormat = useResetRecoilState(acceptedFormatState)
     const resetPassword = useResetRecoilState(passwordState)
-    const resetProcessedFile = useResetRecoilState(proccesedFileState)
+    const resetProcessedFile = useResetRecoilState(processedFileState)
+    const resetFlagProcessed = useResetRecoilState(flagProcessedState)
     useEffect(() => {
         resetFiles()
         resetAllowMultiple()
@@ -18,6 +19,7 @@ const Home = () => {
         resetAcceptedFormat()
         resetPassword()
         resetProcessedFile()
+        resetFlagProcessed()
     })
     return (
         <div className="wrap">

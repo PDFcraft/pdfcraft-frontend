@@ -4,9 +4,8 @@ import Merge from "./Routes/Merge";
 import Home from "./Routes/Home"
 import Split from "./Routes/Split";
 import Unlock from "./Routes/Unlock";
-import Watermark from "./Routes/Watermark";
+import Wip from "./Routes/Wip";
 import Topdf from "./Routes/Topdf";
-import Tojpg from "./Routes/Tojpg";
 import Protect from "./Routes/Protect";
 import Rotate from "./Routes/Rotate";
 import { RecoilRoot } from "recoil";
@@ -23,9 +22,9 @@ function App() {
             <Route path="/merge" exact element={<Merge />} />
             <Route path="/split" exact element={<Split />} />
             <Route path="/unlock" exact element={<Unlock />} />
-            <Route path="/watermark" exact element={<Watermark />} />
+            <Route path="/watermark" exact element={<Wip />} />
             <Route path="/topdf" exact element={<Topdf />} />
-            <Route path="/tojpg" exact element={<Tojpg />} />
+            <Route path="/tojpg" exact element={<Wip />} />
             <Route path="/protect" exact element={<Protect />} />
             <Route path="/rotate" exact element={<Rotate />} />
           </Routes>

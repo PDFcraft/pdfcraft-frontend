@@ -1,10 +1,10 @@
 import React from "react";
 import Axios from 'axios';
 import { useRecoilValue } from "recoil";
-import { proccesedFileState } from "../state";
+import { processedFileState } from "../state";
 
 const DownloadButton = () => {
-    const processedFile = useRecoilValue(proccesedFileState);
+    const processedFile = useRecoilValue(processedFileState);
     let file_url="";
     if(processedFile.length>0){
         file_url = "http://localhost:8080/api/download=" + processedFile[1].replace(/\.[^/.]+$/, "");

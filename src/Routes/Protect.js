@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import {useRecoilValue, useSetRecoilState } from "recoil";
 import DropzoneComponent from "../Components/DropzoneComponent";
-import { buttonTextState, filesState, proccesedFileState, retypePasswordState, targetUrlState,passwordState} from "../state";
+import { buttonTextState, filesState, flagProcessedState, retypePasswordState, targetUrlState,passwordState} from "../state";
 import UploadButton from "../Components/UploadButton"
 import DownloadButton from "../Components/DownloadButton"
+import ProcessedComponent from "../Components/ProcessedFile";
+import UploadedComponent from "../Components/UploadedFile";
 
 const Protect = () => {
     const files = useRecoilValue(filesState);
-    const processedFile = useRecoilValue(proccesedFileState);
+    const flagProcessed = useRecoilValue(flagProcessedState);
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setButtonText = useSetRecoilState(buttonTextState);
     const setRetypePassword = useSetRecoilState(retypePasswordState)
@@ -35,9 +37,14 @@ const Protect = () => {
             {
                 files.length>0 && 
                 <div>
+                    <UploadedComponent/>
                     <input type="password" name="password" onChange={onPasswordChange} />
                     <input type="password" name="re-type-password" onChange={onRetypePasswordChange} />
                 </div>
+            }
+            {
+                flagProcessed==true&&
+                <ProcessedComponent/>
             }
             <UploadButton />
             <DownloadButton />

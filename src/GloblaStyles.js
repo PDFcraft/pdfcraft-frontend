@@ -79,6 +79,11 @@ const GlobalStyle = createGlobalStyle`
   border-radius: 25px 25px;
   cursor: pointer;
 }
+
+.processed-icon{
+  width:100px;
+}
+
 `;
 
 export default GlobalStyle;

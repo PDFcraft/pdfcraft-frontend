@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import DragItem from "../Components/DragItem";
 import DropzoneComponent from "../Components/DropzoneComponent";
 import {useRecoilValue, useSetRecoilState } from 'recoil';
-import { filesState, proccesedFileState, targetUrlState, buttonTextState, pdfMessageState, allowMultipleState} from "../state";
+import { filesState, targetUrlState, buttonTextState, pdfMessageState, allowMultipleState, flagProcessedState} from "../state";
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
+import ProcessedComponent from "../Components/ProcessedFile";
 
 const Merge = () => {
     const files = useRecoilValue(filesState);
-    const processedFile = useRecoilValue(proccesedFileState);
+    const flagProcessed = useRecoilValue(flagProcessedState);
     const setButtonText = useSetRecoilState(buttonTextState)
     const setTargetUrl = useSetRecoilState(targetUrlState);
     const setDragzoneMsg = useSetRecoilState(pdfMessageState);
@@ -29,9 +30,13 @@ const Merge = () => {
             }
 
             {
-                files.length > 0 &&
+                (files.length > 0 && flagProcessed==false)&&
                 <DragItem />
 
+            }
+            {
+                flagProcessed==true&&
+                <ProcessedComponent/>
             }
             <UploadButton />
             <DownloadButton />

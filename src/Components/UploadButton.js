@@ -1,21 +1,22 @@
 import React from "react";
 import Axios from 'axios';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { acceptedFormatState, buttonTextState, filesState, passwordState, proccesedFileState, retypePasswordState, targetUrlState, userDefinedOrderState } from '../state';
+import { acceptedFormatState, buttonTextState, filesState, flagProcessed, flagProcessedState, passwordState, processedFileState, retypePasswordState, targetUrlState, userDefinedOrderState } from '../state';
 
 const UploadButton = () => {
     const files = useRecoilValue(filesState)
     const userDefinedOrder = useRecoilValue(userDefinedOrderState)
-    const setProcessedFile = useSetRecoilState(proccesedFileState)
+    const setProcessedFile = useSetRecoilState(processedFileState)
     const targetUrl = useRecoilValue(targetUrlState)
     const buttonText = useRecoilValue(buttonTextState)
     const acceptedFormat = useRecoilValue(acceptedFormatState)
     const password = useRecoilValue(passwordState)
     const retypePassword = useRecoilValue(retypePasswordState)
+    const setFlagProcessed = useSetRecoilState(flagProcessedState)
     const postFiles = () => {
         console.log(files)
         const formData = new FormData();
-        // 추가하는 코드는 이 아래부터
+        setFlagProcessed(true)
         if(buttonText==="Protect"||buttonText==="Unlock"){
             formData.append("options",password)
         }

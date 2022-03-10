@@ -10,7 +10,7 @@ export const userDefinedOrderState = atom({
     default: [],
 })
 
-export const proccesedFileState = atom({
+export const processedFileState = atom({
     key: "processedFileState",
     default: [],
 })
@@ -48,4 +48,9 @@ export const passwordState = atom({
 export const retypePasswordState = atom({
     key: "retypePasswordState",
     default: "",
+})
+
+export const flagProcessedState = atom({
+    key: "flagProcessed",
+    default: false,
 })

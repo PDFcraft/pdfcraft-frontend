@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from 'axios';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { acceptedFormatState, buttonTextState, filesState, flagProcessed, flagProcessedState, passwordState, processedFileState, retypePasswordState, targetUrlState, userDefinedOrderState } from '../state';
+import { acceptedFormatState, angleState, buttonTextState, filesState,flagProcessedState, passwordState, processedFileState, retypePasswordState, targetUrlState, userDefinedOrderState } from '../state';
 
 const UploadButton = () => {
     const files = useRecoilValue(filesState)
@@ -11,14 +11,17 @@ const UploadButton = () => {
     const buttonText = useRecoilValue(buttonTextState)
     const acceptedFormat = useRecoilValue(acceptedFormatState)
     const password = useRecoilValue(passwordState)
+    const angle = useRecoilValue(angleState)
     const retypePassword = useRecoilValue(retypePasswordState)
     const setFlagProcessed = useSetRecoilState(flagProcessedState)
     const postFiles = () => {
-        console.log(files)
         const formData = new FormData();
         setFlagProcessed(true)
         if(buttonText==="Protect"||buttonText==="Unlock"){
             formData.append("options",password)
+        }
+        if(buttonText==="Rotate"){
+            formData.append("options",angle)
         }
         if (userDefinedOrder.length>1){
             for (var i in userDefinedOrder) {
@@ -30,7 +33,6 @@ const UploadButton = () => {
                 }
             }
         }else{
-            console.log(acceptedFormat)
             formData.append(acceptedFormat==="application/pdf"?'files':'imgs', files[0]);
         }
         Axios.post(targetUrl, formData, {
@@ -40,7 +42,6 @@ const UploadButton = () => {
         }).then((resp) => {
             if (resp.status === 200) {
                 setProcessedFile(Object.entries(resp.data.FileName)[0])
-                console.log(Object.entries(resp.data.FileName)[0])
             }
         });
     }

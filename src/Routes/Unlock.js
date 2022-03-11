@@ -28,14 +28,14 @@ const Unlock = () => {
                 <DropzoneComponent/>
             }
             {
-                files.length>0 && 
+                (files.length>0 && flagProcessed===false)&& 
                 <div>
                     <UploadedComponent/>
                     <input type="password" name="password" onChange={onPasswordChange} />
                 </div>
             }
             {
-                flagProcessed==true&&
+                flagProcessed===true&&
                 <ProcessedComponent/>
             }
             <UploadButton />

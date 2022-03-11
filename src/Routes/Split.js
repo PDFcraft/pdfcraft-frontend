@@ -24,11 +24,11 @@ const Split = () => {
                 <DropzoneComponent/>
             }
             {
-                files.length>0 && 
+                (files.length>0 && flagProcessed===false)&& 
                 <UploadedComponent/>
             }
             {
-                flagProcessed==true&&
+                flagProcessed===true&&
                 <ProcessedComponent/>
             }
             <UploadButton />

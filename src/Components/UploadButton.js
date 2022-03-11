@@ -27,7 +27,6 @@ const UploadButton = () => {
             for (var i in userDefinedOrder) {
                 for (var j in files) {
                     if (files[j].name === Object.values(userDefinedOrder[i])[1]) {
-                        console.log(files[j])
                         formData.append(acceptedFormat==="application/pdf"?'files':'imgs', files[j]);
                     }
                 }

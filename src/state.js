@@ -54,3 +54,8 @@ export const flagProcessedState = atom({
     key: "flagProcessed",
     default: false,
 })
+
+export const angleState = atom({
+    key:"angle",
+    default:"360",
+})

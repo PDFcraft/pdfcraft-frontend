@@ -30,12 +30,12 @@ const Merge = () => {
             }
 
             {
-                (files.length > 0 && flagProcessed==false)&&
+                (files.length > 0 && flagProcessed===false)&&
                 <DragItem />
 
             }
             {
-                flagProcessed==true&&
+                flagProcessed===true&&
                 <ProcessedComponent/>
             }
             <UploadButton />

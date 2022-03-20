@@ -9,7 +9,6 @@ const UploadedComponent = () => {
     if (files.length>0 ){
         uploadedFile=files[0].name
     }
-    console.log(uploadedFile)
     return (
         <div>
             <div className="processed-icon">

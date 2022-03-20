@@ -16,7 +16,7 @@ const UploadButton = () => {
     const setFlagProcessed = useSetRecoilState(flagProcessedState)
     const postFiles = () => {
         const formData = new FormData();
-        setFlagProcessed(true)
+        
         if(buttonText==="Protect"||buttonText==="Unlock"){
             formData.append("options",password)
         }
@@ -27,7 +27,6 @@ const UploadButton = () => {
             for (var i in userDefinedOrder) {
                 for (var j in files) {
                     if (files[j].name === Object.values(userDefinedOrder[i])[1]) {
-                        console.log(files[j])
                         formData.append(acceptedFormat==="application/pdf"?'files':'imgs', files[j]);
                     }
                 }
@@ -41,9 +40,16 @@ const UploadButton = () => {
             },
         }).then((resp) => {
             if (resp.status === 200) {
-                setProcessedFile(Object.entries(resp.data.FileName)[0])
+                if(buttonText!=="Split"){
+                    setProcessedFile(Object.entries(resp.data.FileName)[0])
+                }else{
+                    console.log(resp.data)
+                    setProcessedFile(Object.entries(resp.data.ProcessedName)[0])
+                }
+                
             }
         });
+        setFlagProcessed(true)
     }
     return (
         <div>

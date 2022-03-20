@@ -1,9 +1,10 @@
 import React from "react";
 import Axios from 'axios';
 import { useRecoilValue } from "recoil";
-import { processedFileState } from "../state";
+import { processedFileState,buttonTextState } from "../state";
 
 const DownloadButton = () => {
+    const buttonText = useRecoilValue(buttonTextState)
     const processedFile = useRecoilValue(processedFileState);
     let file_url="";
     if(processedFile.length>0){
@@ -16,12 +17,22 @@ const DownloadButton = () => {
             method: 'GET',
             responseType: 'blob', // important
         }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', processedFileName);
-            document.body.appendChild(link);
-            link.click();
+            if(buttonText==="Split"){
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', processedFileName+".zip");
+                document.body.appendChild(link);
+                link.click();
+                
+            }else{
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', processedFileName);
+                document.body.appendChild(link);
+                link.click();
+            } 
         });
     }
     return (

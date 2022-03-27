@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useResetRecoilState} from "recoil";
 import { acceptedFormatState, allowMultipleState,filesState, pdfMessageState,passwordState, processedFileState, flagProcessedState } from "../state";
-import folder from "../folder.svg";
+import folder from "../svg/folderopen.svg";
 
 const Home = () => {
     const resetFiles = useResetRecoilState(filesState);
@@ -22,9 +22,19 @@ const Home = () => {
         resetFlagProcessed()
     })
     return (
-        <div className="wrap">
-            <h1>HOME</h1>
-            <section className="grid">
+        <section className="home-background">
+        <div className="top-bar">
+            <span className="title">PDFcraft</span>
+            <div className="dots">
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </div>
+        </div>
+        <section className="wrap">
+            <section className="grid1">
+               <h1>HOME</h1> 
+            </section>
+            <section className="grid2">
             <Link to="/merge">
                 <div className="box merge-box">
                     <img src={folder} width="50" alt="pdf-file" />
@@ -90,7 +100,8 @@ const Home = () => {
                 </div>
             </Link>
             </section>
-        </div>
+        </section>
+        </section>
     );
 };
 

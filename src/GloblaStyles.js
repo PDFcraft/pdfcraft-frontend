@@ -1,12 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
   *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
   }
-
+  
   body {
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: 'Press Start 2P', cursive;
     line-height: 1.5;
   }
 
@@ -45,43 +50,71 @@ const GlobalStyle = createGlobalStyle`
   font-size:14px;
 }
 
-.wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid{
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  width:90%;
-}
-
-.box{
-  background-color:#cccccc;
-  height: 120px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  cursor: auto;
-}
-
-.box-icon{
-  background-image: url("folder.svg");
-}
-
-.box-btn{
-  width: 100px;
-  height: 30px;
-  border-radius: 25px 25px;
-  cursor: pointer;
-}
-
 .processed-icon{
   width:100px;
+}
+
+.home-background {
+  width: 100%;
+  height: 100vh;
+  background-color:#9B9B9B;
+  border: 5px solid #212126;
+  display: grid;
+  grid-template-rows: 1fr 15fr;
+  position: relative;
+}
+
+.top-bar{
+  background-color:#D8D9D7;
+  border-bottom: 5px solid #212126;
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title{
+  width:90%;
+  height:25px;
+}
+
+.dots{
+  display: flex;
+  width: 6%;
+  height: 25px;
+}
+
+.dot{
+  width:25px;
+  heigth:25px;
+  border-radius:50%;
+  background-color:#F5F5F5;
+  border: 4px solid #212126;
+}
+
+.wrap{
+  width:45%;
+  height:50vh;
+  background-color:#D8D9D7;
+  border: 5px solid #212126;
+  position: absolute;
+  top:27%;
+  bottom:0;
+  left:0;
+  right:0;
+  display:grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.grid1{
+  background-color:#212126;
+  width:100%;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 `;

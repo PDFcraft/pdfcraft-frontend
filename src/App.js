@@ -21,12 +21,16 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/merge" exact element={<Merge />} />
             <Route path="/split" exact element={<Split />} />
-            <Route path="/unlock" exact element={<Unlock />} />
-            <Route path="/watermark" exact element={<Wip />} />
-            <Route path="/topdf" exact element={<Topdf />} />
-            <Route path="/tojpg" exact element={<Wip />} />
-            <Route path="/protect" exact element={<Protect />} />
             <Route path="/rotate" exact element={<Rotate />} />
+            <Route path="/topdf" exact element={<Topdf />} />
+            <Route path="/unlock" exact element={<Unlock />} />
+            <Route path="/protect" exact element={<Protect />} />
+            <Route path="/tojpg" exact element={<Wip />} />
+            <Route path="/watermark" exact element={<Wip />} />
+            
+            
+            
+            
           </Routes>
         </Router>
       </>

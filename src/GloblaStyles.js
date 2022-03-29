@@ -1,13 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
   *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    text-decoration: none;
+    color: #212126;
   }
-
+  
   body {
-    font-family: "Helvetica", "Arial", sans-serif;
-    line-height: 1.5;
+    font-family: 'Press Start 2P', cursive;
   }
 
   .dropzone {
@@ -45,43 +51,88 @@ const GlobalStyle = createGlobalStyle`
   font-size:14px;
 }
 
-.wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid{
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  width:90%;
-}
-
-.box{
-  background-color:#cccccc;
-  height: 120px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  cursor: auto;
-}
-
-.box-icon{
-  background-image: url("folder.svg");
-}
-
-.box-btn{
-  width: 100px;
-  height: 30px;
-  border-radius: 25px 25px;
-  cursor: pointer;
-}
-
 .processed-icon{
   width:100px;
+}
+
+.home-body{
+  width: 100%;
+  height: 100vh;
+  background-color: #9B9B9B;
+  box-shadow: 0 0 0 3px #212126 inset; 
+  position: relative;
+}
+
+.home-body .home-top{
+  height: 48px;
+  background-color : #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
+  display: flex;
+  align-items: center;
+}
+
+.home-top-title {
+  width:70%;
+  margin-left: 20px;
+}
+
+.home-top-dotss {
+  width:30%;
+  margin-right: 20px;
+}
+
+.home-top-dots {
+  width: 100px;
+  display: flex;
+  margin-right: 0;
+}
+
+.home-top-dots .home-top-dot {
+  width: 25px;
+  height: 25px;
+  background-color: #F5F5F5;
+  border: 2px solid #212126;
+  border-radius: 50%;
+}
+
+.home-main{
+  width: 750px;
+  height: 480px;
+  position: absolute;
+  top: calc(50% - 240px);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
+}
+
+.home-main-top {
+  height:130px;
+  background-color: #212126;
+  display:flex;
+}
+
+.home-main-top img {
+  width: 220px;
+}
+
+.home-main-contents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.home-main-contents .box{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 32px;
+  height:120px;
+}
+
+.home-main-contents .box img {
+  width:90px;
 }
 
 `;

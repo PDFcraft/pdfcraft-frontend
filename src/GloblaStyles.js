@@ -8,11 +8,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
+    text-decoration: none;
+    color: #212126;
   }
   
   body {
     font-family: 'Press Start 2P', cursive;
-    line-height: 1.5;
   }
 
   .dropzone {
@@ -54,67 +55,84 @@ const GlobalStyle = createGlobalStyle`
   width:100px;
 }
 
-.home-background {
+.home-body{
   width: 100%;
   height: 100vh;
-  background-color:#9B9B9B;
-  border: 5px solid #212126;
-  display: grid;
-  grid-template-rows: 1fr 15fr;
+  background-color: #9B9B9B;
+  box-shadow: 0 0 0 3px #212126 inset; 
   position: relative;
 }
 
-.top-bar{
-  background-color:#D8D9D7;
-  border-bottom: 5px solid #212126;
-  width: 100%;
-  display:flex;
-  justify-content: space-between;
+.home-body .home-top{
+  height: 48px;
+  background-color : #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
+  display: flex;
   align-items: center;
 }
 
-.title{
-  width:90%;
-  height:25px;
+.home-top-title {
+  width:70%;
+  margin-left: 20px;
 }
 
-.dots{
+.home-top-dotss {
+  width:30%;
+  margin-right: 20px;
+}
+
+.home-top-dots {
+  width: 100px;
   display: flex;
-  width: 6%;
+  margin-right: 0;
+}
+
+.home-top-dots .home-top-dot {
+  width: 25px;
   height: 25px;
+  background-color: #F5F5F5;
+  border: 2px solid #212126;
+  border-radius: 50%;
 }
 
-.dot{
-  width:25px;
-  heigth:25px;
-  border-radius:50%;
-  background-color:#F5F5F5;
-  border: 4px solid #212126;
-}
-
-.wrap{
-  width:45%;
-  height:50vh;
-  background-color:#D8D9D7;
-  border: 5px solid #212126;
+.home-main{
+  width: 750px;
+  height: 480px;
   position: absolute;
-  top:27%;
-  bottom:0;
-  left:0;
-  right:0;
-  display:grid;
-  grid-template-rows: 1fr 2fr;
+  top: calc(50% - 240px);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
 }
 
-.grid1{
-  background-color:#212126;
-  width:100%;
+.home-main-top {
+  height:130px;
+  background-color: #212126;
+  display:flex;
 }
 
-.grid2{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+.home-main-top img {
+  width: 220px;
+}
+
+.home-main-contents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.home-main-contents .box{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 32px;
+  height:120px;
+}
+
+.home-main-contents .box img {
+  width:90px;
 }
 
 `;

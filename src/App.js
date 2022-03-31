@@ -10,6 +10,7 @@ import Protect from "./Routes/Protect";
 import Rotate from "./Routes/Rotate";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "./GloblaStyles";
+import Explain from "./Routes/Explain";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <GlobalStyle />
         <Router>
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" exact element={<Explain />} />
+            <Route path="/home" exact element={<Home />} />
             <Route path="/merge" exact element={<Merge />} />
             <Route path="/split" exact element={<Split />} />
             <Route path="/rotate" exact element={<Rotate />} />

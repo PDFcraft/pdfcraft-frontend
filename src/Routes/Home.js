@@ -40,9 +40,11 @@ const Home = () => {
             </div>
             </section>
             <section className="home-main">
+                <Link to="/">
                 <div className="home-main-top">
                     <img src={logoSvg} alt="pdf-file" />
                 </div>
+                </Link>
                 <section className="home-main-contents">
                 <Link to="/merge">
                 <div className="box">

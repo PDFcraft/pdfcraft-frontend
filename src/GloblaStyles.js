@@ -212,6 +212,24 @@ const GlobalStyle = createGlobalStyle`
   font-size: 24px;
 }
 
+.home-main-features{
+  display: flex;
+  flex-direction: column;
+}
+
+.features-btns {
+  display: flex;
+}
+
+.features-btn {
+  width: 252px;
+  height: 70px;
+  background: #9B9B9B;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  color:white;
+}
+
 `;
 
 export default GlobalStyle;

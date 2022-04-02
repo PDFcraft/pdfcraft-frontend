@@ -52,7 +52,7 @@ const UploadButton = () => {
         setFlagProcessed(true)
     }
     return (
-        <div>
+        <div className="features-btn">
             {
                 buttonText==="Protect" &&
                 <div>

@@ -36,9 +36,12 @@ const DownloadButton = () => {
         });
     }
     return (
-        <button onClick={downloadFile} disabled={!processedFile.length>0}>
+        <div className="features-btn">
+           <button onClick={downloadFile} disabled={!processedFile.length>0}>
             DOWNLOAD
-        </button>
+            </button> 
+        </div>
+        
     )
 }
 export default DownloadButton;

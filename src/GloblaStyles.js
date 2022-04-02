@@ -12,10 +12,6 @@ const GlobalStyle = createGlobalStyle`
     color: #212126;
     font-family: 'Press Start 2P', cursive;
   }
-  
-  body {
-    
-  }
 
   .dropzone {
   text-align: center;
@@ -228,6 +224,49 @@ const GlobalStyle = createGlobalStyle`
   border: 3px solid #000000;
   box-sizing: border-box;
   color:white;
+}
+
+.home-main-wrap{
+  width: 850px;
+  display:flex;
+  position: absolute;
+  top: calc(50% - 240px);
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.home-main-2{
+  width: 750px;
+  height: 480px;
+  background-color: #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
+}
+
+.home-main-shortcuts{
+  width:100px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shortcuts-box {
+  width: 75px;
+  height: 75px;
+  background-color: #D8D9D7;
+  box-shadow: 0 0 0 3px #212126 inset; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-selected{
+  background-color: #212126;
+}
+
+.shortcuts-box img {
+  width: 48px;
 }
 
 `;

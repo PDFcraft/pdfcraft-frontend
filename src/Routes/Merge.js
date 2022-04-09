@@ -7,13 +7,9 @@ import { filesState, targetUrlState, buttonTextState, pdfMessageState, allowMult
 import DownloadButton from "../Components/DownloadButton";
 import UploadButton from "../Components/UploadButton";
 import ProcessedComponent from "../Components/ProcessedFile";
+import Featbackground from "../Components/Featbackground";
+import Featshortcuts from "../Components/Featshortcuts";
 import logoSvg from "../svg/logo.svg";
-import mergeSvg from "../svg/merge.svg";
-import splitSvg from "../svg/split.svg";
-import rotateSvg from "../svg/rotate.svg";
-import topdfSvg from "../svg/topdf.svg";
-import unlockSvg from "../svg/unlock.svg";
-import protectSvg from "../svg/protect.svg";
 
 const Merge = () => {
     const files = useRecoilValue(filesState);
@@ -30,20 +26,7 @@ const Merge = () => {
     })
     return (
         <div>
-            <section className="home-body">
-            <section className="home-top">
-            <div className="home-top-title">
-            <Link to="/home">
-                PDFcraft
-            </Link>
-            </div>
-            <div className="home-top-dotss">
-                <div className="home-top-dots">
-                    <div className="home-top-dot"></div>
-                    <div className="home-top-dot"></div>
-                </div>
-            </div>
-            </section>
+            <Featbackground />
             <section className="home-main-wrap">
             <section className="home-main-2">
                 <Link to="/home">
@@ -72,39 +55,8 @@ const Merge = () => {
                     </div>
                 </div>
             </section>
-            <section className="home-main-shortcuts">
-                <Link to="/merge">
-                <div className="shortcuts-box box-selected">
-                    <img src={mergeSvg} alt="pdf-file" />
-                </div>
-                </Link>
-                <Link to="/split">
-                <div className="shortcuts-box">
-                    <img src={splitSvg} alt="pdf-file" />
-                </div>
-                </Link>
-                <Link to="/rotate">
-                <div className="shortcuts-box">
-                    <img src={rotateSvg} alt="pdf-file" />
-                </div>
-                </Link>
-                <Link to="/topdf">
-                <div className="shortcuts-box">
-                    <img src={topdfSvg} alt="pdf-file" />
-                </div>
-                </Link>
-                <Link to="/unlock">
-                <div className="shortcuts-box">
-                    <img src={unlockSvg} alt="pdf-file" />
-                </div>
-                </Link>
-                <Link to="/protect">
-                <div className="shortcuts-box">
-                    <img src={protectSvg} alt="pdf-file" />
-                </div>
-                </Link>
-            </section>
-            </section>
+            <Featshortcuts />
+                <div className="box-selected-1"></div>
             </section>
         </div>
     );

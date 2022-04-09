@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
+    border: none;
     text-decoration: none;
     color: #212126;
     font-family: 'Press Start 2P', cursive;
@@ -261,12 +262,63 @@ const GlobalStyle = createGlobalStyle`
   align-items: center;
 }
 
-.box-selected{
+.box-selected-1{
   background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 2px;
+  left: 764px;
+}
+
+.box-selected-2{
+  background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 83px;
+  left: 764px;
+}
+
+.box-selected-3{
+  background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 164px;
+  left: 764px;
+}
+
+.box-selected-4{
+  background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 245px;
+  left: 764px;
+}
+
+.box-selected-5{
+  background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 326px;
+  left: 764px;
+}
+
+.box-selected-6{
+  background-color: #212126;
+  width: 72px;
+  height: 72px;
+  position:absolute;
+  top: 407px;
+  left: 764px;
 }
 
 .shortcuts-box img {
   width: 48px;
+  z-index: 1;
 }
 
 `;

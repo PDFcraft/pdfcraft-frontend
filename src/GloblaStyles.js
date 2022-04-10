@@ -117,8 +117,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .processed-contents {
-  display: flex;
-  justify-content: center;
+  display:flex;
   align-items: center;
 }
 
@@ -128,8 +127,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .processed-text{
-  width:400px
-  background-color: tomato;
+  width: 420px;
   font-size: 24px;
   color: #9B9B9B !important;
 }
@@ -163,6 +161,38 @@ const GlobalStyle = createGlobalStyle`
   cursor: pointer;
   color: #7C7D7F;
   border: 3px solid #212126;
+}
+
+.uploaded-box{
+  height: 250px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploaded-wrap{
+  width: 620px;
+  height: 200px;
+  background-color: #F5F5F5 !important;
+  border: 3px solid #212126;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.uploaded-contents{
+  display:flex;
+  align-items: center;
+}
+
+.uploaded-icon{
+  width:100px;
+  margin-right: 30px;
+}
+
+.uploaded-text{
+  width: 420px;
+  font-size: 24px;
+  color: #9B9B9B !important;
 }
 
 .home-body{
@@ -418,6 +448,65 @@ const GlobalStyle = createGlobalStyle`
 .shortcuts-box img {
   width: 48px;
   z-index: 1;
+}
+
+.rotate-wrap {
+  width: 80px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 170px;
+  left: 600px;
+}
+
+.rotate-btn {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 10px;
+  color: #9B9B9B;
+  border: 3px solid #9B9B9B;
+}
+
+.rotate-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+.unlock-wrap{
+  
+}
+
+.unlock-input{
+  width: 250px;
+  height: 30px;
+  position: absolute;
+  top: 310px;
+  left: 250px;
+  border: 3px solid #9B9B9B;
+}
+
+.protect-input__left{
+  width: 250px;
+  height: 30px;
+  position: absolute;
+  top: 310px;
+  left: 120px;
+  border: 3px solid #9B9B9B;
+}
+
+.protect-input__right{
+  width: 250px;
+  height: 30px;
+  position: absolute;
+  top: 310px;
+  left: 380px;
+  border: 3px solid #9B9B9B;
 }
 
 `;

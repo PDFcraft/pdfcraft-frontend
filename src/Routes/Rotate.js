@@ -10,6 +10,7 @@ import UploadedComponent from "../Components/UploadedFile";
 import logoSvg from "../svg/logo.svg";
 import Featbackground from "../Components/Featbackground";
 import Featshortcuts from "../Components/Featshortcuts";
+import rotateSvg from "../svg/rotate.svg";
 
 const Rotate = () => {
     const files = useRecoilValue(filesState);
@@ -46,18 +47,20 @@ const Rotate = () => {
                 (files.length>0 && flagProcessed===false)&&
                 <div>
                     <UploadedComponent/>
-                    <button
-                    onClick={() => {
-                        rotateAngle("90");
-                        }}>90</button>
-                    <button
-                    onClick={() => {
-                        rotateAngle("180");
-                        }}>180</button>
-                    <button
-                    onClick={() => {
-                        rotateAngle("270");
-                        }}>270</button>
+                    <div className="rotate-wrap">
+                        <button className="rotate-btn"
+                        onClick={() => {
+                            rotateAngle("90");
+                            }}><img src={rotateSvg} alt="pdf-file" />90</button>
+                        <button className="rotate-btn"
+                        onClick={() => {
+                            rotateAngle("180");
+                            }}><img src={rotateSvg} alt="pdf-file" />180</button>
+                        <button className="rotate-btn"
+                        onClick={() => {
+                            rotateAngle("270");
+                            }}><img src={rotateSvg} alt="pdf-file" />270</button>
+                    </div>
                 </div> 
                 }
                 {

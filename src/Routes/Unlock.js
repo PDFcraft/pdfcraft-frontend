@@ -42,9 +42,9 @@ const Unlock = () => {
                 }
                 {
                 (files.length>0 && flagProcessed===false)&& 
-                <div>
+                <div className="unlock-wrap">
                     <UploadedComponent/>
-                    <input type="password" name="password" onChange={onPasswordChange} />
+                    <input className="unlock-input" type="password" name="password" onChange={onPasswordChange} />
                 </div>
                  }
                  {

@@ -10,11 +10,13 @@ const UploadedComponent = () => {
         uploadedFile=files[0].name
     }
     return (
-        <div>
-            <div className="processed-icon">
-                <img src={pdfMark} alt="pdf-file" /> 
-                <span className="drag-box-text">{uploadedFile}</span>
+        <div className="uploaded-box">
+        <div className="uploaded-wrap">
+            <div className="uploaded-contents">
+                <img className="uploaded-icon" src={pdfMark} alt="pdf-file" /> 
+                <span className="uploaded-text">{uploadedFile}</span>
             </div>
+        </div>
         </div>
     );
 };

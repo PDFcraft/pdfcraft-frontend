@@ -51,8 +51,8 @@ const Protect = () => {
                 (files.length>0 && flagProcessed===false)&& 
                 <div>
                     <UploadedComponent/>
-                    <input type="password" name="password" onChange={onPasswordChange} />
-                    <input type="password" name="re-type-password" onChange={onRetypePasswordChange} />
+                    <input className="protect-input__left" type="password" name="password" onChange={onPasswordChange} />
+                    <input className="protect-input__right" type="password" name="re-type-password" onChange={onRetypePasswordChange} />
                 </div>
                 }
                 {

@@ -1,7 +1,7 @@
 import React from "react";
 import Dropzone from 'react-dropzone';
-import folderOpen from "../folder_open.svg";
-import folder from "../folder.svg";
+import folderopen from "../svg/folderopen.svg";
+import folderclose from "../svg/folderclose.svg";
 import { useRecoilValue,useSetRecoilState } from "recoil";
 import { acceptedFormatState, pdfMessageState, allowMultipleState,filesState } from "../state";
 
@@ -14,7 +14,7 @@ const DropzoneComponent = () => {
         setFiles(acceptedFiles);
     }
     return (
-        <div>
+        <div className="dropzone-box">
             <Dropzone
                 multiple={AllowMultiple}
                 dragzoneMsg={setDragzoneMsg}
@@ -43,8 +43,10 @@ const DropzoneComponent = () => {
                             })}
                         >
                             <input {...getInputProps()} />
-                            {isDragActive ? <img src={folderOpen} width="20" alt="pdf-file" /> : <img src={folder} width="20" alt="pdf-file" />}
-                            <p>{setDragzoneMsg}</p>
+                            <div className="dropzone-img">
+                                {isDragActive ? <img src={folderopen} width="20" alt="pdf-file" /> : <img src={folderclose} width="20" alt="pdf-file" />}
+                            </div>
+                            <p className="dropzone-text">{setDragzoneMsg}</p>
                         </div>
                     );
                 }}

@@ -14,13 +14,22 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Press Start 2P', cursive;
   }
 
+  .dropzone-box{
+    height: 250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .dropzone {
-  text-align: center;
-  padding: 20px;
-  border: 3px dashed #eeeeee;
-  background-color: #fafafa;
-  color: #bdbdbd;
-  margin-bottom: 20px;
+  width: 620px;
+  height: 200px;
+  background-color: #F5F5F5;
+  border: 3px solid #212126;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .accept {
@@ -31,26 +40,93 @@ const GlobalStyle = createGlobalStyle`
   border-color: #d83b01 !important;
 }
 
+.dropzone-img img{
+  width: 30px;
+  margin-bottom: 10px;
+}
+
+.dropzone-text{
+  width: 270px;
+  font-size: 12px;
+  color: #9B9B9B;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dragzone-box{
+  height: 250px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dragzone-wrap{
+  width: 620px;
+  height: 200px;
+  padding-left: 10px !important;
+  background-color: #F5F5F5 !important;
+  border: 3px solid #212126;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .drag-box {
-  width:150px;
+  width:130px;
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: #F5F5F5 !important;
+  
 }
 
 .drag-box-text{
-  width:120px;
-  display:-webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  width:115px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow:hidden;
-  word-break:break-all;
   font-size:14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9B9B9B;
+  padding-top: 17px;
+}
+.processed-box{
+  height: 250px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.processed-wrap{
+  width: 620px;
+  height: 200px;
+  background-color: #F5F5F5 !important;
+  border: 3px solid #212126;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.processed-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .processed-icon{
   width:100px;
+  margin-right: 30px;
+}
+
+.processed-text{
+  width:400px
+  background-color: tomato;
+  font-size: 24px;
+  color: #9B9B9B !important;
 }
 
 .home-body{

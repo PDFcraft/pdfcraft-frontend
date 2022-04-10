@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilValue} from 'recoil';
 import { filesState } from '../state';
-import pdfMark from "../pdf_mark.svg";
+import pdfMark from "../svg/pdfmark.svg";
 
 const UploadedComponent = () => {
     const files = useRecoilValue(filesState);

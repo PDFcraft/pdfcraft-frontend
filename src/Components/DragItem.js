@@ -3,8 +3,8 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { filesState, userDefinedOrderState, acceptedFormatState} from "../state";
 import * as func from "../utils"
-import imgMark from "../img_mark.svg";
-import pdfMark from "../pdf_mark.svg";
+import imgMark from "../svg/imgmark.svg";
+import pdfMark from "../svg/pdfmark.svg";
 
 // a little function to help us with reordering the result
 const DragItem = (props) => {
@@ -40,10 +40,11 @@ const DragItem = (props) => {
         [items])
 
     return (
+        <div className="dragzone-box">
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable" direction="horizontal">
                 {(provided, snapshot) => (
-                    <div
+                    <div className="dragzone-wrap"
                         ref={provided.innerRef}
                         style={func.getListStyle(snapshot.isDraggingOver)}
                         {...provided.droppableProps}
@@ -72,6 +73,7 @@ const DragItem = (props) => {
                 )}
             </Droppable>
         </DragDropContext>
+        </div>
     );
 };
 export default DragItem;

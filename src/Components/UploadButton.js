@@ -55,7 +55,7 @@ const UploadButton = () => {
         <div className="features-btn">
             {
                 buttonText==="Protect" &&
-                <div>
+                <div className="features-btn__upload">
                     <button onClick={postFiles} disabled={(password!==retypePassword)||(password==="")||!files.length>0}>
                         {buttonText}
                     </button>
@@ -63,7 +63,7 @@ const UploadButton = () => {
             }
              {
                 buttonText==="Unlock" &&
-                <div>
+                <div className="features-btn__upload">
                     <button onClick={postFiles} disabled={password===""||!files.length>0}>
                         {buttonText}
                     </button>
@@ -71,7 +71,7 @@ const UploadButton = () => {
             }
             {
                 ((buttonText!=="Protect")&&(buttonText!=="Unlock"))&&
-                <div>
+                <div className="features-btn__upload">
                     <button onClick={postFiles} disabled={!files.length>0}>
                         {buttonText}
                     </button>

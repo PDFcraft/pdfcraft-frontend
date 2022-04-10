@@ -37,9 +37,11 @@ const DownloadButton = () => {
     }
     return (
         <div className="features-btn">
-           <button onClick={downloadFile} disabled={!processedFile.length>0}>
-            DOWNLOAD
-            </button> 
+            <div className="features-btn__down">
+                <button onClick={downloadFile} disabled={!processedFile.length>0}>
+                Download
+                </button> 
+            </div>
         </div>
         
     )
